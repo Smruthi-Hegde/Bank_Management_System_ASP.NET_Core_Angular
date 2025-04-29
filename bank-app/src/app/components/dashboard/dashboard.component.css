@@ -1,0 +1,45 @@
+/* Ensure both cards have the same height */
+.card-equal-height {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* Space content evenly */
+    height: 300px;  /* Adjust this value based on your preference */
+  }
+  
+  /* Navbar stays fixed on top */
+  app-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  /* Container for the welcome message */
+  .container.text-center {
+    margin-top: 100px;  /* Push the welcome message below the navbar */
+  }
+  
+  /* Style for the cards */
+  .card {
+    padding: 2rem;  /* Increase padding for a larger card */
+    border-radius: 15px;  /* Optional: smooth corners for a modern look */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);  /* Soft shadow */
+  }
+  
+  .card-title {
+    font-size: 1.5rem;  /* Larger title font */
+  }
+  
+  .card-text {
+    font-size: 1.25rem;  /* Bigger text */
+  }
+  
+  .container {
+    max-width: 90%;  /* Make sure content doesn't stretch too far */
+  }
+  
+  @media (min-width: 768px) {
+    .col-md-5 {
+      max-width: 400px; /* Max width for cards on larger screens */
+    }
+  }
+  

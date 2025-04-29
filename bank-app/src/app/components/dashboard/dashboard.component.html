@@ -1,0 +1,31 @@
+<app-navbar></app-navbar> <!-- Navbar at the top -->
+
+<!-- Welcome Message -->
+<div class="container text-center mt-5">
+  <h1 class="display-4">Welcome to MyBank</h1>
+  <p class="lead">Your trusted financial partner</p>
+</div>
+
+<!-- Then your main page content (cards) -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <!-- Balance Card -->
+    <div class="col-md-5 mb-4">
+      <div class="card shadow p-4 card-equal-height">
+        <h5 class="card-title">Account Balance</h5>
+        <!-- Display account balance fetched dynamically from the backend -->
+        <p class="card-text fs-4 fw-bold text-success"> {{ accountBalance | currency: 'INR' }}</p>
+      </div>
+    </div>
+
+    <!-- About Card -->
+    <div class="col-md-5 mb-4">
+      <div class="card shadow p-4 card-equal-height">
+        <h5 class="card-title">About MyBank</h5>
+        <p class="card-text">
+          Welcome to MyBank – your trusted financial partner. We ensure secure, fast, and seamless banking experiences with modern technology and traditional values.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

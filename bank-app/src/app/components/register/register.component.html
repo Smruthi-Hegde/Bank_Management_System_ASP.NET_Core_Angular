@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow p-4" style="width: 26rem;">
+    <h4 class="mb-4 text-center">Register Account</h4>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input
+          [(ngModel)]="formData.fullName"
+          name="fullName"
+          type="text"
+          class="form-control"
+          placeholder="Enter full name"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          [(ngModel)]="formData.email"
+          name="email"
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="Enter email"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          [(ngModel)]="formData.password"
+          name="password"
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Create password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Register</button>
+    </form>
+  </div>
+</div>

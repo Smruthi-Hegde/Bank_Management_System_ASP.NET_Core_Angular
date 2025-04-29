@@ -1,0 +1,31 @@
+<app-navbar></app-navbar> <!-- Navbar at the top -->
+
+<div class="container mt-5">
+  <h2 class="text-center">Transaction List</h2>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card shadow p-4">
+        <h5 class="card-title">Transactions</h5>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Sender Account</th>
+              <th scope="col">Receiver Account</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of transactions">
+              <td>{{ maskAccount(transaction.senderAccount) }}</td>
+              <td>{{ maskAccount(transaction.receiverAccount) }}</td>
+              <td>{{ transaction.amount | currency: 'INR' }}</td>
+              <td>{{ formatDate(transaction.date) }}</td> <!-- Format date -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+<app-navbar></app-navbar> <!-- Navbar at the top -->
+
+<div class="container mt-4">
+  <h3>Add Account</h3>
+  <form (ngSubmit)="onAddAccount()">
+    <div class="mb-3">
+      <label class="form-label">Account Number</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newAccount.accountNumber"
+        name="accountNumber"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Account Holder</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newAccount.accountHolder"
+        name="accountHolder"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Balance</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="newAccount.balance"
+        name="balance"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Account</button>
+  </form>
+
+  <hr />
+
+  <h3>Accounts List</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Account Number</th>
+        <th>Account Holder</th>
+        <th>Balance</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accounts; let i = index">
+        <td>{{ account.accountNumber }}</td>
+        <td>{{ account.accountHolder }}</td>
+        <td>{{ account.balance }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2" (click)="onEditAccount(i)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="confirmDelete(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div
+  *ngIf="editingIndex !== null"
+  class="card position-fixed top-50 start-50 translate-middle p-4 shadow-lg"
+  style="width: 400px; z-index: 1050; background-color: white; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"
+>
+  <h5 class="mb-3">Edit Account</h5>
+  <form (ngSubmit)="onUpdateAccount()">
+    <div class="mb-3">
+      <label class="form-label">Account Number</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="editAccount.accountNumber"
+        name="editAccountNumber"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Account Holder</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="editAccount.accountHolder"
+        name="editAccountHolder"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Balance</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="editAccount.balance"
+        name="editBalance"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-success me-2">Update</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+  </form>
+</div>
+
+<!-- Delete Confirmation Card -->
+<div
+  *ngIf="deleteIndex !== null"
+  class="card position-fixed top-50 start-50 translate-middle p-4 shadow-lg"
+  style="width: 350px; z-index: 1050; background-color: white; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"
+>
+  <h5>Confirm Deletion</h5>
+  <p>Are you sure you want to delete this account?</p>
+  <button class="btn btn-danger me-2" (click)="onDeleteConfirmed()">Yes, Delete</button>
+  <button class="btn btn-secondary" (click)="cancelDelete()">Cancel</button>
+</div>
